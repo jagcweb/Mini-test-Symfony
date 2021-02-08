@@ -14,7 +14,7 @@ Para usar la aplicación es obligatorio estar registrado.
 Dependencias:
 ____________________________________________
 
-Symfony 5
-MySQL
-Composer 2.0.7
-Xampp con PHP 8
+- Symfony 5
+- MySQL
+- Composer 2.0.7
+- Xampp con PHP 8
