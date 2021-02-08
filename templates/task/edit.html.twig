@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+<h1>Editar Tarea</h1>
+    <div class="card">
+    {{form_start(form)}}
+
+    <label for="user">User</label>
+    {% if app.user != null and app.user.rol == 'admin' %}
+        <select name="user">
+            {% for user in users %}
+                <option value="" disabled hidden selected>{{task.user.email}}</option>
+                <option value="{{user.id}}">{{user.email}}</option>
+            {% endfor %}
+        </select>
+    {% else %}
+        <input type="text" value="{{task.user.email}}" disabled/>
+    {% endif %}
+    {{form_widget(form)}}
+
+    {{form_end(form)}}
+
+</div>
+{% endblock %}

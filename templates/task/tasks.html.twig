@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tareas{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+
+    {# Mostramos las sessiones #}
+    {% for message in app.session.flashbag().get('message') %}
+        {{message}}
+    {% endfor %}
+    <h1>Tareas</h1>
+    <div id="cards">
+        {% if app.user.rol == 'admin' %}
+            {% for admin_task in all_tasks %}
+            <a href="{{path('edit', {'id':admin_task.id})}}">Editar</a>
+            <a style="margin-left:25px;"  href="{{path('delete', {'id':admin_task.id})}}">Borrar</a>
+                <div class="card">
+                    <span>Priority: {{admin_task.priority}}</span>
+                    <h1>{{admin_task.title}}</h1>
+                    <p>{{admin_task.description}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for user_task in user_tasks %}
+            <a href="{{path('edit', {'id':user_task.id})}}">Editar</a>
+            <a style="margin-left:25px;"  href="{{path('delete', {'id':user_task.id})}}">Borrar</a>
+                <div class="card">
+                    <span>Priority: {{user_task.priority}}</span>
+                    <h1>{{user_task.title}}</h1>
+                    <p>{{user_task.description}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

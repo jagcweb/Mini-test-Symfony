@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Login</h1>
+
+    {#  Si existe algun error, lo transcribimos para que el usuario lo entienda. #}
+    {% if error %}
+        {{ error.messagekey|trans(error.messageData, 'security') }}
+    {% endif %}
+
+    {% if app.user %} {# Si está logueado nos lleva a las tareas #}
+    <script>
+        window.location.replace("/tasks");
+    </script>
+{% endif %}
+
+    <div class="card">
+        <form action="{{path('login')}}" method="POST">
+            <div>
+            <label for="username">Email:</label>
+            <input type="email" id="username" name="_username" value="{{lastUsername}}"/>
+            </div>
+            {# En el value cargamos el último username introducido en caso de error. #}
+
+            <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password"/>
+            </div>
+
+            <div>
+            <input style="margin-top:20px;" type="submit" value="Login"/>
+            </div>
+        </form>
+        <p>¿Todavía no estás registrado? <a href="{{path('register')}}">¡Regístrate!</a></p>
+    </div>
+</div>
+{% endblock %}

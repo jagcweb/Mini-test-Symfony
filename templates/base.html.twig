@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{asset ('assets/css/styles.css') }}" type="text/css" rel="stylesheet"/>
+        {% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        <div class="">
+        {% if app.user %}
+            <h1>Hola {{app.user.email}}!</h1>
+            <a href="{{path('getTasks')}}">Home</a>
+            <a href="{{path('create')}}">Crear Tarea</a>
+            <a href="{{path('logout')}}">Logout</a>
+        {% else %}
+        <a href="{{path('login')}}">Login</a>
+        {% endif %}
+        </div>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

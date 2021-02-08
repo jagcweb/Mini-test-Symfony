@@ -1,0 +1,78 @@
+.example-wrapper {
+    margin: 0px auto;
+    max-width: 800px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+}
+
+.example-wrapper code {
+    background: #F5F5F5;
+    padding: 2px 6px;
+}
+
+#cards{
+    display:flex;
+    flex-wrap:wrap;
+    width:70%;
+    margin:0px auto;
+}
+
+.card{
+    width:100%;
+    background: #f6f6f6;
+    border: 1px solid black;
+    border-radius:10px;
+    margin: 10px;
+    padding:20px;
+    text-align:center;
+}
+
+#register div{
+    margin: 20px;
+}
+
+label{
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
+    padding: 10px;
+    margin-left: 10px;
+    width: 80%;
+    height: 30px;
+    font-size: 17px;
+    color: #666;
+
+}
+
+select{
+    padding: 10px;
+    margin-left: 10px;
+    width: 80%;
+    height: 50px;
+    font-size: 17px;
+    color: #666;
+}
+
+textarea{
+    padding: 10px;
+    margin-left: 10px;
+    width: 80%;
+    height: 40px;
+    font-size: 17px;
+    color: #666;
+}
+
+button, input[type="submit"]{
+    width: 80%;
+    background: #666;
+    border: none;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: whitesmoke;
+    margin-top: 20px;
+}
